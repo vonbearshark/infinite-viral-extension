@@ -861,7 +861,6 @@
         //var nodes = Array.prototype.slice.call(master.getElementsByTagName("*"), 0);
         for(var i = 0; i < headings.length; i ++) {
             if(headings[i].childNodes && headings[i].childNodes[0].tagName === 'A') {
-                console.log('here!');
                 headings[i].childNodes[0].textContent = generate();
             }
             else {
