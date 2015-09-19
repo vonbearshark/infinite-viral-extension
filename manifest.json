@@ -3,7 +3,7 @@
 
   "name": "Infinite Viral",
   "description": "Viral news all the time.",
-  "version": "1.0",
+  "version": "1.1.0",
 
   "browser_action": {
     "default_icon": "icon.png",

@@ -6,14 +6,19 @@ Top 10 Reasons Only 90's Kids Won't Even Believe What This Extension Does!
 
 Build using professor Bill Laboon's Infinite Viral: [source](https://github.com/laboon/viral_gen), [site](http://infiniteviral.com/)
 
-(Currently only works on the New York Times...)
+Screens:
 
-Screen:
+This is your new existence:
 
 ![NYT Screenshot](/infiniteviralnytscreen.png?raw=true "New York Times")
+![LA Times Screenshot](/infinitevirallatscreen.png?raw=true "LA Times")
+
+It even works on Buzzfeed! (Admittedly, this was hard to test for.)
+
+![Buzzfeed Screenshot](/infiniteviralbfscreen.png?raw=true "Buzzfeed")
 
 ---
 
-Install
+Download and install [chrome store link](https://chrome.google.com/webstore/detail/infinite-viral/gejghfapdoblkdeghocaggoalocccacg "on the chrome store")
 
 ---

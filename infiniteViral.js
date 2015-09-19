@@ -847,25 +847,33 @@
     }
 
     //alright, generate the headlines!
+    //get a headline with: generate();
+    //find the title on the page
+    //this is tricky, because their's no standard headlines
+    //so look through all likely element classes for keywords
+    //right now it assumes a pretty semantic DOM
     (function() {
-        //get a headline with: var headline = generate();
-        //find the title on the page
-        //this is trick, because their's no standard for defining
-        // what this looks like
-        //so... look through all classes and elastic search?
-        //TODO: hard-coded for now...
-        //if there is a <a>, go a level deep, if not just find the <h-tag> (no always h1...)
-        //check if the thing with the class is an h1 or div... (only find h1s?) only find a tags? Then go by news orgs?
-        var headings  =  Array.prototype.slice.call(document.querySelectorAll('.story-heading'));
+        var headings  =  Array.prototype.slice.call(document.querySelectorAll('h1, h2, h3, h4, h5, h6, a')).map(
+            function(heading) {
+                if(heading.className.toLowerCase().indexOf('story') > -1 ||
+                    heading.className.toLowerCase().indexOf('headline') > -1 ||
+                    heading.className.toLowerCase().indexOf('title') > -1 ||
+                    heading.className.toLowerCase().indexOf('lede') > -1) {
 
-        //var nodes = Array.prototype.slice.call(master.getElementsByTagName("*"), 0);
-        for(var i = 0; i < headings.length; i ++) {
-            if(headings[i].childNodes && headings[i].childNodes[0].tagName === 'A') {
-                headings[i].childNodes[0].textContent = generate();
-            }
-            else {
-                headings[i].textContent = generate();
-            }
-        };
+                    if(heading.tagName === 'A' && /\S/.test(heading.innerText)) {
+                        heading.innerText = generate();
+                    }
+                    else if (heading.tagName !== 'A'){
+                        //TODO: Assumes first child link is the article heading
+                        var links  = Array.prototype.slice.call(heading.querySelectorAll('a'));
+                        if(links.length > 0) {
+                            links[0].innerText = generate();
+                        }
+                        else {
+                            heading.innerText = generate();
+                        }
+                    }
+                }
+            });
     })();
 
