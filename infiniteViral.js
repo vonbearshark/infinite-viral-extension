@@ -853,7 +853,7 @@
     //so look through all likely element classes for keywords
     //right now it assumes a pretty semantic DOM
     (function() {
-        var headings  =  Array.prototype.slice.call(document.querySelectorAll('h1, h2, h3, h4, h5, h6, a')).map(
+        var headings  =  Array.prototype.slice.call(document.querySelectorAll('div, h1, h2, h3, h4, h5, h6, a')).map(
             function(heading) {
                 if(heading.className.toLowerCase().indexOf('story') > -1 ||
                     heading.className.toLowerCase().indexOf('headline') > -1 ||
@@ -865,11 +865,22 @@
                     }
                     else if (heading.tagName !== 'A'){
                         //TODO: Assumes first child link is the article heading
-                        var links  = Array.prototype.slice.call(heading.querySelectorAll('a'));
-                        if(links.length > 0) {
-                            links[0].innerText = generate();
+                        var immediateLinkChild  = Array.prototype.slice.call(heading.querySelectorAll('a'))[0];
+                        if(immediateLinkChild) {
+                            //Shouldn't alter inner text if there's an child image tag
+                            var immediateImgChildren  = Array.prototype.slice.call(immediateLinkChild.querySelectorAll('img'));
+                            if(!immediateImgChildren.length > 0) {
+                                console.log('no nested image in link child!');
+                                console.log(immediateImgChildren);
+                                immediateLinkChild.innerText = generate();
+                            }
+                            else {
+                                console.log('nested image in link child!');
+                                console.log(immediateImgChildren);
+                            }
                         }
-                        else {
+                        else if (heading.tagName !== 'DIV') {
+                            console.log('not div!');
                             heading.innerText = generate();
                         }
                     }
