@@ -2,7 +2,7 @@
 
 ---
 
-Top 10 Reasons Only 90's Kids Won't Even Believe What This Extension Does! (Number #8 Made Me Question My Sexuality!)
+Top 10 Reasons Only 90's Kids Won't Even Believe What This Chrome Browser Extension Does! (Number #8 Made Me Question My Sexuality!)
 
 Build using professor Bill Laboon's Infinite Viral: [source](https://github.com/laboon/viral_gen), [site](http://infiniteviral.com/)
 
