@@ -870,17 +870,10 @@
                             //Shouldn't alter inner text if there's an child image tag
                             var immediateImgChildren  = Array.prototype.slice.call(immediateLinkChild.querySelectorAll('img'));
                             if(!immediateImgChildren.length > 0) {
-                                console.log('no nested image in link child!');
-                                console.log(immediateImgChildren);
                                 immediateLinkChild.innerText = generate();
-                            }
-                            else {
-                                console.log('nested image in link child!');
-                                console.log(immediateImgChildren);
                             }
                         }
                         else if (heading.tagName !== 'DIV') {
-                            console.log('not div!');
                             heading.innerText = generate();
                         }
                     }
